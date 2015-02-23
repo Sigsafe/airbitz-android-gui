@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.airbitz" >
+    package="com.airbitz">
 
     <uses-sdk
         android:minSdkVersion="16"
@@ -55,7 +55,7 @@
         android:label="@string/app_name"
         android:largeHeap="true"
         android:theme="@android:style/Theme.NoTitleBar"
-        android:uiOptions="splitActionBarWhenNarrow" >
+        android:uiOptions="splitActionBarWhenNarrow">
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -68,7 +68,7 @@
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan" >
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -105,9 +105,8 @@
             android:name="com.google.android.maps"
             android:required="false" />
 
-        <receiver android:name=".objects.AirbitzAlertReceiver" >
-        </receiver>
-        <receiver android:name=".objects.BootReceiver" >
+        <receiver android:name=".objects.AirbitzAlertReceiver"></receiver>
+        <receiver android:name=".objects.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
@@ -115,8 +114,26 @@
 
         <activity
             android:name="google.com.android.cloudprint.PrintDialogActivity"
-            android:label="@string/title_cloud_print_dialog_activity" >
+            android:label="@string/title_cloud_print_dialog_activity"></activity>
+
+        <activity
+            android:name="sigsafe.NfcActivity"
+            android:label="SigSafe">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.nfc.action.TECH_DISCOVERED" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.nfc.action.TECH_DISCOVERED"
+                android:resource="@xml/nfc" />
         </activity>
+
+
     </application>
 
 </manifest>
